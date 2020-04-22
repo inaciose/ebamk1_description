@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<robot name="ebamk1">
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.016" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.032" radius="0.035"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <joint name="joint_1" type="revolute">
+    <origin xyz="0 0 0.049" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="link_1" />
+    <axis xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="0"
+      lower="-0.7854" upper="0.7854"/>
+      <!--   [-45,45]-->
+  </joint>
+
+  <link name="link_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.034 0.034" />
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+
+  <joint name="joint_2" type="revolute">
+    <origin xyz="0 0 0.017" rpy="0 0 0" />
+    <parent link="link_1" />
+    <child link="link_2" />
+    <axis xyz="1 0 0" />
+    <limit
+      effort="0"
+      velocity="0"
+      lower="-0.6109" upper="0.9599"/>
+      <!--   [-35,55]-->
+  </joint>
+
+  <link name="link_2">
+    <visual>
+      <origin xyz="0 0 0.04" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.08" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+  </link>
+
+  <joint name="joint_3" type="revolute">
+    <origin xyz="0 0 0.08" rpy="0 0 0" />
+    <parent link="link_2" />
+    <child link="link_3" />
+    <axis xyz="1 0 0" />
+    <limit
+      effort="0"
+      velocity="0"
+      lower="-1.2217" upper="0.3491"/>
+      <!--   [-70,20]-->
+  </joint>
+
+  <link name="link_3">
+    <visual>
+      <origin
+        xyz="0 0.0225 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.0075 0.127 0.01" />
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+
+  <joint name="joint_4" type="revolute">
+    <origin xyz="0 0.085 0" rpy="0 0 0" />
+    <parent link="link_3" />
+    <child link="link_4" />
+    <axis xyz="1 0 0" />
+    <limit
+      effort="0"
+      velocity="0"
+      lower="-0.7854" upper="1.2217"/>
+      <!--   [-45,70]-->
+  </joint>
+
+  <link name="link_4">
+    <visual>
+      <origin
+        xyz="0 0.005 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.005" />
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+
+  <joint name="joint_5" type="fixed">
+    <origin xyz="0 0.01 0" rpy="0 0 0" />
+    <parent link="link_4" />
+    <child link="link_5" />
+    <axis xyz="1 0 0" />
+  </joint>
+
+  <link name="link_5">
+    <visual>
+      <origin
+        xyz="0 0.025 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.05 0.005" />
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+
+  <material name="red">
+    <color rgba="1 0 1 1"/>
+  </material>
+
+  <material name="blue">
+    <color rgba="0 0 1 1"/>
+  </material>
+
+</robot>
